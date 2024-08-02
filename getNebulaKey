@@ -1,0 +1,21 @@
+local function getFirst12Digits(inputString)
+    local digits = ""
+    local digitCount = 0
+
+    for i = 1, #inputString do
+        local char = inputString:sub(i, i)
+        if char:match("%d") then
+            digits = digits .. char
+            digitCount = digitCount + 1
+            if digitCount == 12 then
+                break
+            end
+        end
+    end
+
+    return digits
+end
+
+local myString = gethwid()
+local first12Digits = getFirst12Digits(myString)
+setclipboard(first12Digits)
